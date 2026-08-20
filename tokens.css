@@ -1,0 +1,426 @@
+/* ============================================================
+   shamraizgul.com design tokens
+   Extracted from the live Squarespace 7.1 site, 16 Aug 2026.
+   Measured at a 1600px viewport via computed styles, not guessed.
+
+   Drop this in, then build the case study page against the
+   variables only. Do not hardcode hex values in the page.
+   ============================================================ */
+
+/* ---- Font -------------------------------------------------
+   Squarespace serves Poppins from its own CDN. On GitHub Pages
+   pull the same family from Google Fonts. These are the exact
+   weights and styles the live site loads.
+   Put this in <head> BEFORE this stylesheet:
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+------------------------------------------------------------ */
+
+:root {
+
+  /* ---- Colour ---------------------------------------------
+     The entire site palette is 0% saturation. There is no
+     brand hue. Every value below is a pure neutral.
+     HSL values are the raw Squarespace tokens; hex is the
+     rendered result.
+  --------------------------------------------------------- */
+
+  --sg-white:        #FFFFFF;   /* hsl(0,0%,100%)      site background */
+  --sg-black:        #111111;   /* hsl(0,0%,6.67%)     body text, nav, footer, icons */
+  --sg-accent:       #222222;   /* hsl(0,0%,13.33%)    headings, button fill */
+  --sg-accent-dark:  #262626;   /* hsl(0,0%,15%)       Squarespace darkAccent */
+  --sg-accent-light: #5C5C5C;   /* hsl(0,0%,36.08%)    Squarespace lightAccent, muted text */
+
+  /* Semantic aliases, use these in the page */
+  --sg-bg:           var(--sg-white);
+  --sg-text:         var(--sg-black);
+  --sg-heading:      var(--sg-accent);
+  --sg-muted:        var(--sg-accent-light);
+
+  /* ---- NOT from the site ----------------------------------
+     A case study page needs surfaces and rules the marketing
+     pages never needed. These are derived from the same
+     neutral ramp so they stay in family. Delete any you
+     do not use rather than leaving them unused.
+  --------------------------------------------------------- */
+
+  --sg-surface:      #F5F5F5;   /* stat strips, pull-quote blocks, callout panels */
+  --sg-surface-alt:  #FAFAFA;   /* alternating section bands */
+  --sg-rule:         #E5E5E5;   /* hairlines, table borders, section dividers */
+  --sg-code-bg:      #F0F0F0;   /* legacy-artifact / code-snippet blocks */
+
+  /* ---- Typography -----------------------------------------
+     Squarespace tokens: heading weight 500, body weight 300,
+     letter-spacing 0em on both, body line-height 1.8em.
+     The clamp() values reproduce the measured desktop sizes
+     at 1600px and degrade sensibly below. Squarespace's own
+     scaling formula is proprietary, so eyeball these at
+     375 / 768 / 1440 and nudge if anything looks off.
+  --------------------------------------------------------- */
+
+  --sg-font: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --sg-weight-body:    300;
+  --sg-weight-heading: 500;
+  --sg-weight-bold:    700;
+
+  /* H1  measured 74.6px / 91.91px line-height / 500 / #222222 */
+  --sg-h1-size: clamp(2.25rem, 4.66vw, 4.66rem);
+  --sg-h1-lh:   1.232;
+
+  /* H2  Squarespace heading-2 token is 2.8 vs H1's 4.0 (0.7x) */
+  --sg-h2-size: clamp(1.75rem, 3.26vw, 3.26rem);
+  --sg-h2-lh:   1.3;
+
+  /* H3  token 2.2 (0.55x of H1) */
+  --sg-h3-size: clamp(1.375rem, 2.56vw, 2.56rem);
+  --sg-h3-lh:   1.35;
+
+  /* H4  token 1.2 (0.3x of H1) */
+  --sg-h4-size: clamp(1.0625rem, 1.4vw, 1.4rem);
+  --sg-h4-lh:   1.4;
+
+  /* Lead paragraph  measured 24.68px / 44.42px (1.8) / 300 */
+  --sg-lead-size: clamp(1.125rem, 1.54vw, 1.5425rem);
+  --sg-lead-lh:   1.8;
+
+  /* Body  measured 17px / 30.6px (1.8) / 300. Does not scale. */
+  --sg-body-size: 1.0625rem;   /* 17px */
+  --sg-body-lh:   1.8;
+
+  /* Small, for captions and callout labels. Not on the live
+     site; sized down from body on the same 1.8 rhythm. */
+  --sg-small-size: 0.875rem;   /* 14px */
+  --sg-small-lh:   1.7;
+
+  --sg-tracking:        0em;      /* headings and body, both */
+  --sg-tracking-button: 0.02em;   /* measured 0.34px at 17px */
+
+  /* ---- Layout ---------------------------------------------
+     Measured: at a 1600px viewport the hero H1 sits at x=188
+     and runs 792px wide, so the content column is
+     1600 - (188 * 2) = 1224px with an 11.75vw gutter.
+  --------------------------------------------------------- */
+
+  --sg-content-max: 1224px;
+  --sg-gutter: clamp(1.5rem, 11.75vw, 11.75rem);
+
+  /* Narrower measure for long-form prose. 1224px of 17px text
+     is far too wide to read. Case study body copy should sit
+     around 65 to 75 characters. */
+  --sg-prose-max: 46rem;   /* ~736px, roughly 72ch at 17px */
+
+  /* Section rhythm. Measured section padding-top was 129.98px
+     at 1600px viewport (~8.1vw). */
+  --sg-section-y: clamp(4rem, 8.1vw, 8.125rem);
+
+  --sg-space-1: 0.5rem;
+  --sg-space-2: 1rem;
+  --sg-space-3: 1.5rem;
+  --sg-space-4: 2rem;
+  --sg-space-5: 3rem;
+  --sg-space-6: 4rem;
+
+  --sg-radius: 0px;   /* the site uses hard corners everywhere */
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--sg-bg);
+  color: var(--sg-text);
+  font-family: var(--sg-font);
+  font-size: var(--sg-body-size);
+  font-weight: var(--sg-weight-body);
+  line-height: var(--sg-body-lh);
+  letter-spacing: var(--sg-tracking);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  color: var(--sg-heading);
+  font-weight: var(--sg-weight-heading);
+  letter-spacing: var(--sg-tracking);
+  margin: 0 0 var(--sg-space-3);
+}
+
+h1 { font-size: var(--sg-h1-size); line-height: var(--sg-h1-lh); }
+h2 { font-size: var(--sg-h2-size); line-height: var(--sg-h2-lh); }
+h3 { font-size: var(--sg-h3-size); line-height: var(--sg-h3-lh); }
+h4 { font-size: var(--sg-h4-size); line-height: var(--sg-h4-lh); }
+
+p { margin: 0 0 var(--sg-space-3); }
+
+.sg-lead {
+  font-size: var(--sg-lead-size);
+  line-height: var(--sg-lead-lh);
+  color: var(--sg-text);
+}
+
+.sg-small,
+figcaption {
+  font-size: var(--sg-small-size);
+  line-height: var(--sg-small-lh);
+  color: var(--sg-muted);
+}
+
+/* Links. The live site renders inline links with no underline,
+   which is an accessibility problem on a text-heavy page.
+   Underlining them here on purpose. */
+a { color: inherit; text-decoration: underline; text-underline-offset: 0.2em; }
+a:hover { color: var(--sg-muted); }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+.sg-container {
+  max-width: var(--sg-content-max);
+  margin-inline: auto;
+  padding-inline: var(--sg-space-3);
+}
+
+.sg-prose { max-width: var(--sg-prose-max); }
+
+.sg-section { padding-block: var(--sg-section-y); }
+
+.sg-section--band { background: var(--sg-surface-alt); }
+
+.sg-rule { border: 0; border-top: 1px solid var(--sg-rule); margin-block: var(--sg-space-5); }
+
+/* ============================================================
+   HEADER AND FOOTER
+   Match the Squarespace chrome so the GitHub page reads as
+   the same site. Header background is transparent on white;
+   nav is body weight, not heading weight.
+   ============================================================ */
+
+.sg-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sg-space-4);
+  max-width: var(--sg-content-max);
+  margin-inline: auto;
+  padding: var(--sg-space-4) var(--sg-space-3);
+  background: transparent;
+}
+
+.sg-logo {
+  font-weight: var(--sg-weight-heading);
+  font-size: var(--sg-body-size);
+  color: var(--sg-text);
+  text-decoration: none;
+}
+
+.sg-nav { display: flex; gap: var(--sg-space-4); }
+
+.sg-nav a {
+  font-size: var(--sg-body-size);
+  font-weight: var(--sg-weight-body);
+  color: var(--sg-text);
+  text-decoration: none;
+}
+
+.sg-nav a:hover,
+.sg-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+}
+
+.sg-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sg-space-4);
+  flex-wrap: wrap;
+  max-width: var(--sg-content-max);
+  margin-inline: auto;
+  padding: var(--sg-space-6) var(--sg-space-3);
+  color: var(--sg-text);
+  font-size: var(--sg-body-size);
+  font-weight: var(--sg-weight-body);
+}
+
+.sg-footer a { text-decoration: none; }
+.sg-footer a:hover { text-decoration: underline; }
+
+/* ============================================================
+   BUTTON
+   Measured: 236 x 74px, fill #222222, text #FFFFFF,
+   radius 0, weight 500, 17px, letter-spacing 0.34px,
+   horizontal padding 34px.
+   ============================================================ */
+
+.sg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 74px;
+  padding-inline: 34px;
+  background: var(--sg-accent);
+  color: var(--sg-white);
+  font-family: var(--sg-font);
+  font-size: var(--sg-body-size);
+  font-weight: var(--sg-weight-heading);
+  letter-spacing: var(--sg-tracking-button);
+  text-decoration: none;
+  border: 0;
+  border-radius: var(--sg-radius);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.sg-btn:hover { opacity: 0.85; color: var(--sg-white); }
+
+.sg-btn--ghost {
+  background: transparent;
+  color: var(--sg-accent);
+  box-shadow: inset 0 0 0 1px var(--sg-accent);
+}
+
+.sg-btn--ghost:hover { background: var(--sg-accent); color: var(--sg-white); opacity: 1; }
+
+/* ============================================================
+   CASE STUDY COMPONENTS
+   Not on the live site. Built from the same tokens so they
+   read as the same design language.
+   ============================================================ */
+
+/* Stat strip. Put this in the first scroll, not the bottom. */
+.sg-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--sg-space-4);
+  padding: var(--sg-space-5) var(--sg-space-4);
+  background: var(--sg-surface);
+}
+
+.sg-stat__value {
+  display: block;
+  font-size: var(--sg-h3-size);
+  line-height: 1.1;
+  font-weight: var(--sg-weight-heading);
+  color: var(--sg-heading);
+}
+
+.sg-stat__label {
+  display: block;
+  margin-top: var(--sg-space-1);
+  font-size: var(--sg-small-size);
+  line-height: var(--sg-small-lh);
+  color: var(--sg-muted);
+}
+
+/* Figure with caption. Every dense screenshot should carry one. */
+.sg-figure { margin: var(--sg-space-5) 0; }
+.sg-figure img { display: block; width: 100%; height: auto; }
+.sg-figure figcaption { margin-top: var(--sg-space-2); max-width: var(--sg-prose-max); }
+
+/* Numbered callout list, to sit beside an annotated screenshot.
+   This is the pattern that stops a 40-field screen reading as
+   decoration. Number the overlay in Figma, list the meaning here. */
+.sg-callouts { counter-reset: sg-callout; list-style: none; margin: 0; padding: 0; }
+
+.sg-callouts li {
+  counter-increment: sg-callout;
+  position: relative;
+  padding-left: 2.75rem;
+  margin-bottom: var(--sg-space-3);
+  max-width: var(--sg-prose-max);
+}
+
+.sg-callouts li::before {
+  content: counter(sg-callout);
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: var(--sg-accent);
+  color: var(--sg-white);
+  font-size: var(--sg-small-size);
+  font-weight: var(--sg-weight-heading);
+  line-height: 1;
+}
+
+/* Attributed pull quote. The credibility substitute for
+   internal tools with no public users. */
+.sg-quote {
+  margin: var(--sg-space-5) 0;
+  padding: var(--sg-space-4);
+  background: var(--sg-surface);
+  border-left: 2px solid var(--sg-accent);
+}
+
+.sg-quote blockquote {
+  margin: 0 0 var(--sg-space-2);
+  font-size: var(--sg-lead-size);
+  line-height: var(--sg-lead-lh);
+}
+
+.sg-quote cite {
+  font-style: normal;
+  font-size: var(--sg-small-size);
+  color: var(--sg-muted);
+}
+
+/* Legacy artifact block, for showing the thing people had to
+   live with before. */
+.sg-artifact {
+  padding: var(--sg-space-4);
+  background: var(--sg-code-bg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--sg-small-size);
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+/* Sticky section index. The device that makes a long page
+   survivable. Name sections after claims, not phases. */
+.sg-toc {
+  position: sticky;
+  top: var(--sg-space-4);
+  align-self: start;
+  font-size: var(--sg-small-size);
+  line-height: 2;
+}
+
+.sg-toc a { color: var(--sg-muted); text-decoration: none; }
+.sg-toc a:hover,
+.sg-toc a.is-active { color: var(--sg-text); }
+
+.sg-with-toc {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sg-space-5);
+}
+
+@media (min-width: 60rem) {
+  .sg-with-toc { grid-template-columns: 14rem minmax(0, 1fr); }
+}
+
+/* ============================================================
+   ACCESSIBILITY AND MOTION
+   ============================================================ */
+
+:focus-visible { outline: 2px solid var(--sg-accent); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

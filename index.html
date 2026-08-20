@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automating Coalition's support queue — Shamraiz Gul</title>
+<meta name="description" content="Coalition's first AI product, shipped in three months. A 1,500-ticket-a-month support queue taken to 65% end-to-end automation, and the interaction pattern behind it.">
+<meta name="author" content="Shamraiz Gul">
+<link rel="canonical" href="https://work.shamraizgul.com/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Automating Coalition's support queue — Shamraiz Gul">
+<meta property="og:description" content="Coalition's first AI product, shipped in three months. Four out of five AI proposals shipped untouched.">
+<meta property="og:image" content="https://work.shamraizgul.com/assets/images/15-hover-pattern-full.png">
+<meta property="og:url" content="https://work.shamraizgul.com/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<div data-root="" style="--accent:#5C5C5C; --canvas:#FFFFFF; background:var(--canvas); color:#111111; font:300 17px/1.8 'Poppins',system-ui,sans-serif; min-height:100vh; position:relative; overflow-x:clip">
+
+  <nav style="position:sticky; top:0; z-index:60; background:rgba(255,255,255,.9); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid #E5E5E5">
+    <div style="max-width:1224px; margin:0 auto; padding:0 clamp(20px, 4vw, 48px); min-height:60px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 32px; padding-top:10px; padding-bottom:10px">
+      <a href="www.shamraizgul.com" style="font:500 14px/1 'Poppins',sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#111111; white-space:nowrap" target="_blank" rel="noopener noreferrer">Shamraiz Gul</a>
+      <div style="display:flex; flex-wrap:wrap; justify-content:flex-end; align-items:center; gap:8px 20px; font:400 13px/1 'Poppins',sans-serif; letter-spacing:.01em">
+        <a href="#quick-view" data-navlink="quick-view" style="color:#5C5C5C; transition:color 200ms cubic-bezier(.2,.8,.2,1)">Summary</a>
+        <a href="#decision" data-navlink="decision" style="color:#5C5C5C; transition:color 200ms cubic-bezier(.2,.8,.2,1)">The decision</a>
+        <a href="#context" data-navlink="context" style="color:#5C5C5C; transition:color 200ms cubic-bezier(.2,.8,.2,1)">Context</a>
+        <a href="#model" data-navlink="model" style="color:#5C5C5C; transition:color 200ms cubic-bezier(.2,.8,.2,1)">Interaction model</a>
+        <a href="#outcomes" data-navlink="outcomes" style="color:#5C5C5C; transition:color 200ms cubic-bezier(.2,.8,.2,1)">Outcomes</a>
+        <a href="#reflection" data-navlink="reflection" style="color:#5C5C5C; transition:color 200ms cubic-bezier(.2,.8,.2,1)">Reflection</a>
+      </div>
+    </div>
+    <div data-progress="" style="position:absolute; left:0; bottom:-1px; height:2px; width:0%; background:var(--accent)"></div>
+  </nav>
+
+  <header id="top" style="position:relative; scroll-margin-top:80px; padding:clamp(56px, 8vw, 104px) 0 0">
+    
+
+    <div style="max-width:1224px; margin:0 auto; padding:0 clamp(20px, 4vw, 48px); position:relative">
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); display:flex; align-items:center; gap:16px; margin:0 0 40px">
+        <span style="font:500 12px/1 'Poppins',sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#5C5C5C">Coalition, Inc. · Cyber insurance · Launched late 2024, still expanding in 2026</span>
+      </div>
+
+      <h1 data-reveal="" style="opacity: 0; transform: translateY(16px); transition: opacity 700ms cubic-bezier(.2,.8,.2,1) 60ms, transform 700ms cubic-bezier(.2,.8,.2,1) 60ms; font: 500 clamp(38px, 6.4vw, 76px)/1.02 'Poppins',sans-serif; letter-spacing: 0; margin: 0 0 40px; max-width: 22ch; text-wrap: pretty; line-height: 83.82px">Automating Coalition’s support queue: Four out of Five AI proposals shipped untouched</h1>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1) 120ms, transform 700ms cubic-bezier(.2,.8,.2,1) 120ms; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap:48px 64px; align-items:start; margin:0 0 80px">
+        <p style="font:400 clamp(18px, 1.54vw, 24px)/1.7 'Poppins',sans-serif; letter-spacing:0; color:#111111; max-width:34ch; margin:0; text-wrap:pretty">Coalition’s first AI product, shipped in three months. It took a 1,500-ticket-a-month queue to 65% end-to-end automation at peak, then expanded into three more ticket types, and the pattern behind it runs in three other teams.</p>
+
+        <div style="border: 1px solid #E5E5E5; padding: clamp(24px, 2.6vw, 32px); border-width: 2px; border-color: #E5E5E571">
+          <div style="display:flex; flex-wrap:wrap; gap:10px; margin:0 0 24px">
+            <span style="font:400 13px/1 'Poppins',sans-serif; color:#5C5C5C; border:1px solid #E5E5E5; border-radius:0; padding:9px 16px">Lead designer, sole designer</span>
+            <span style="font:400 13px/1 'Poppins',sans-serif; color:#5C5C5C; border:1px solid #E5E5E5; border-radius:0; padding:9px 16px">Discovery through launch and two years of expansion</span>
+            <span style="font:400 13px/1 'Poppins',sans-serif; color:#5C5C5C; border:1px solid #E5E5E5; border-radius:0; padding:9px 16px">Embedded in Zendesk</span>
+          </div>
+          <p style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C; margin:0; padding-top:24px; border-top:1px solid #E5E5E5"><strong style="color:#111111; font-weight:500">Team.</strong> One engineering partner, the platform engineering team, and Coalition’s customer success leads. I owned discovery, the interaction model, the autonomy criteria and the measurement plan; engineering owned the extraction pipeline and the model itself.</p>
+        </div>
+      </div>
+    </div><div style="max-width:1224px; margin:0 auto; padding:0 clamp(20px, 4vw, 48px)">
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap:64px; align-items:center">
+        <div data-hoverswap="" style="position:relative; width:100%; aspect-ratio:1064/954; border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#F5F5F5; cursor:crosshair">
+          <img src="assets/images/16-hover-rest.png" alt="Copilot panel at rest, the extracted broker of record value carrying a dotted underline" data-swap="rest" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:opacity 260ms cubic-bezier(.2,.8,.2,1)">
+          <img src="assets/images/17-hover-active.png" alt="The same panel with the source popover open, showing the snippet the value was lifted from" data-swap="active" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 260ms cubic-bezier(.2,.8,.2,1)">
+          <div data-hint="" style="position:absolute; left:16px; bottom:16px; display:flex; align-items:center; gap:8px; background:rgba(17,17,17,.9); color:#FFFFFF; border-radius:0; padding:8px 14px; font:400 12px/1 'Poppins',sans-serif; letter-spacing:.02em; transition:opacity 300ms cubic-bezier(.2,.8,.2,1)">
+            <span style="width:5px; height:5px; border-radius:0; background:#FFFFFF"></span>
+            Hover the panel to see Hover-to-source
+          </div>
+        </div>
+        <div>
+          <p style="font: 400 13px/1 ui-monospace,SFMono-Regular,Menlo,monospace; color: var(--accent); letter-spacing: .04em; margin: 0 0 20px; font-family: Poppins; font-weight: 400; text-transform: capitalize">NEW INTERACTION</p>
+          <p style="font:300 clamp(17px, 1.54vw, 19px)/1.8 'Poppins',sans-serif; color:#111111; max-width:34ch; margin:0 0 20px; text-wrap:pretty">Hover-to-source showed the source of truth right inside the Zendesk panel. A machine assertion and the evidence for it, in the same panel.</p>
+          <p style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C; max-width:38ch; margin:0">The whole product in one frame. The panel proposes, the snippet proves, and the agent never leaves the ticket.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:1224px; margin:0 auto; padding:56px clamp(20px, 4vw, 48px) 0">
+      <figure data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:0">
+        <div style="position:relative; width:100%; aspect-ratio:1010/648; border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#111111">
+          <video src="assets/video/Signature-verify-1-Rest-Elegant.mp4" autoplay loop muted playsinline controls preload="metadata" style="display:block; width:100%; height:100%; object-fit:contain"></video>
+        </div>
+        <figcaption style="font:300 14px/1.7 'Poppins',sans-serif; color:#5C5C5C; margin:18px 0 0; max-width:640px">The shipped loss run flow, one panel, start to finish.</figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <section id="quick-view" style="scroll-margin-top:80px; padding:clamp(56px, 8vw, 112px) 0 0">
+    <div style="max-width:1224px; margin:0 auto; padding:0 clamp(20px, 4vw, 48px)">
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); background:#F5F5F5; border:1px solid #E5E5E5; border-radius:0; padding:clamp(28px, 4vw, 64px)">
+        <div style="display:flex; align-items:baseline; gap:16px; margin:0 0 48px">
+          <span style="font:500 12px/1 'Poppins',sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#5C5C5C">TLDR:</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap:40px; margin:0 0 64px">
+          <div>
+            <div style="height:1px; background:#111111; margin:0 0 20px"></div>
+            <div data-count="65" data-suffix="%" style="font:500 clamp(42px, 5vw, 68px)/1 'Poppins',sans-serif; letter-spacing:0; color:#111111; margin:0 0 14px">65%</div>
+            <div style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C">of loss run requests automated end to end at peak, roughly 1,000 tickets a month</div>
+          </div>
+          <div>
+            <div style="height:1px; background:#111111; margin:0 0 20px"></div>
+            <div data-count="80" data-suffix="%" style="font:500 clamp(42px, 5vw, 68px)/1 'Poppins',sans-serif; letter-spacing:0; color:var(--accent); margin:0 0 14px">80%</div>
+            <div style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C">of proposed runbooks applied by agents with no edit at all, at launch</div>
+          </div>
+          <div>
+            <div style="height:1px; background:#111111; margin:0 0 20px"></div>
+            <div data-count="235" data-prefix="~" style="font:500 clamp(42px, 5vw, 68px)/1 'Poppins',sans-serif; letter-spacing:0; color:#111111; margin:0 0 14px">~235</div>
+            <div style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C">customer success hours returned per month</div>
+          </div>
+          <div>
+            <div style="height:1px; background:#111111; margin:0 0 20px"></div>
+            <div data-count="3" style="font:500 clamp(42px, 5vw, 68px)/1 'Poppins',sans-serif; letter-spacing:0; color:#111111; margin:0 0 14px">3</div>
+            <div style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C">teams reused Hover-to-source for their own AI features</div>
+          </div>
+        </div>
+        
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap:48px; border-top:1px solid #E5E5E5; padding-top:48px">
+          <p style="font:300 17px/1.8 'Poppins',sans-serif; color:#111111; margin:0; text-wrap:pretty">Coalition’s customer success team was absorbing roughly 14,000 Zendesk tickets a month, growing 50% year over year against a headcount plan that was not. Loss runs were 10% of that queue: 1,500 tickets a month, five minutes and seven tool switches each. Mechanical enough to automate, and risky enough that getting it wrong meant a broker receiving an incorrect document.</p>
+          <p style="font:300 17px/1.8 'Poppins',sans-serif; color:#111111; margin:0; text-wrap:pretty">The hardest decision was not what the AI should do. It was what it should be allowed to do without asking. I designed Customer Success Copilot around a runbook: before acting, it shows the task it intends to perform, the data it extracted, the internal actions it plans to take, and the reply it drafted. The agent approves, edits, or ignores it. Nothing happens silently. Full autonomy is unlocked per scenario, behind eligibility criteria I defined with engineering, rather than granted to the system as a whole.</p>
+          <p style="font:300 17px/1.8 'Poppins',sans-serif; color:#111111; margin:0; text-wrap:pretty">That structure is why the numbers held. At launch agents applied the proposal unedited roughly 80% of the time, which says the suggestions were good enough to use as-is rather than merely fast. The runbook then generalized past its original use into bind requests, signature bundles and renewals, and three teams including underwriting workbench and claims picked it up for AI features I had nothing to do with.</p>
+        </div>
+
+        <div style="border-top:1px solid #E5E5E5; margin-top:48px; padding-top:32px; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap">
+          <p style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C; margin:0; max-width:62ch; font-style:italic">The full case study is below, including the decision I got wrong, before getting it right, thoughts on the measurement framework and my reflections.</p>
+          <a href="#decision" style="font:500 15px/1 'Poppins',sans-serif; color:var(--accent); border-bottom:1px solid currentColor; padding-bottom:3px; white-space:nowrap">Read the full case study ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="decision" style="scroll-margin-top:80px; padding:clamp(64px, 9vw, 128px) 0 0; margin-top:clamp(56px, 8vw, 112px); border-top:1px solid #E5E5E5">
+    
+  <div style="max-width:1224px; margin:0 auto; padding:0 clamp(20px, 4vw, 48px)">
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); display:flex; flex-wrap:wrap; gap:24px 64px; align-items:baseline; margin:0 0 72px">
+        <div style="flex:0 0 200px">
+          <div style="font:500 12px/1.5 'Poppins',sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#5C5C5C">The centrepiece</div>
+        </div>
+        <div style="flex:1 1 420px"><h2 style="font: 500 clamp(34px, 5vw, 58px)/1.06 'Poppins',sans-serif; letter-spacing: 0; margin: 0 0 20px; max-width: 24ch; text-wrap: pretty; width: 677px; height: 185px">The decision: proving the model was right in 452 pixels</h2><p style="font:400 clamp(16px, 1.3vw, 19px)/1.6 'Poppins',sans-serif; color:#5C5C5C; margin:0; max-width:54ch; text-wrap:pretty">Every trust affordance had to fit the same 452 pixels of Zendesk sidebar, so proving the output competed directly with doing the work.</p></div>
+      </div>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin-left:clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">First we chose to let agents correct, not confirm</h3>
+        <p style="margin:0 0 24px; text-wrap:pretty">What I proposed first was simple. The runbook would show what it intended to do and the agent would confirm it. One screen, one judgement, minimal chrome. It was the interface for a product that works.</p>
+        <p style="margin:0 0 24px; text-wrap:pretty">My engineering partner pushed back, and she was right to. The LLM and the extraction quality we had access to at that point could not carry it. A confirm-only interface has no graceful middle: when the model gets something wrong, there is nowhere to go except reject the whole runbook and start over by hand. Ship that against a model at the accuracy we actually had and you teach agents that a failed runbook means a manual ticket, which is the fastest way to lose their trust and never get it back.</p>
+        <p style="margin:0 0 24px; text-wrap:pretty">So we built it the other way. Agents were dropped straight into an editable state, with the extracted inputs, mainly the policy number and the account, correctable in place. It also worked. Correcting one field is a far smaller tax than reverting to manual, and the product survived a period when the model on its own would not have.</p>
+        <p style="margin:0; text-wrap:pretty">That decision created the next one. On loss runs the thing an agent had to verify was an account, which the panel could show plainly. When we extended to bind requests and signature bundles, the thing to verify was a signature inside a long document, and there was no plain way to show that in 452 pixels. Everything below came directly out of a design that had made verification the agent’s job.</p>
+      </div>
+
+      <figure data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:72px 0 0">
+        <div style="border:1px solid #E5E5E5; overflow:hidden; background:#F5F5F5">
+          <img src="assets/images/05-confirm-vs-edit.webp" alt="The proposed confirm-only state beside the edit-first state that shipped" style="display:block; width:100%; height:auto">
+        </div><figcaption style="font:300 14px/1.7 'Poppins',sans-serif; color:#5C5C5C; margin:18px 0 0; max-width:700px">The proposed confirm-only state beside the edit-first state that shipped, annotated with the vertical cost of each. Include the pinned-app column so the space competition is visible.</figcaption>
+        
+      </figure>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:96px 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">The panel was 452 pixels wide and had no guaranteed height</h3>
+        <p style="margin:0 0 24px; text-wrap:pretty">Customer Success Copilot shipped as a side panel inside Zendesk. Usable width, 452 pixels, and no guaranteed height either, because pinned Zendesk apps stack vertically and every team that shipped one took room from the others. Everything the model inferred, and everything an agent needed in order to check it, had to fit in a column narrower than a phone, beside the broker’s email and Zendesk’s own form rail.</p>
+        <p style="margin:0; text-wrap:pretty">That constraint was close to non-negotiable. The premise of the product was that agents should not have to leave the tool they already worked in. Not never: we linked out to internal tools where it genuinely helped, and still do. But every link out spent some of the time saving the project existed to produce, so the bar for adding one was high.</p>
+      </div>
+
+      <figure data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:64px 0 0">
+        <div style="position:relative; width:100%; border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#F5F5F5">
+          <img src="assets/images/01-zendesk-panel-in-situ.png" alt="The Copilot panel inside the full Zendesk agent window" style="display:block; width:100%; height:auto">
+          <div style="position:absolute; left:69.1%; top:5.2%; width:28.2%; height:51.5%; border:1.5px solid var(--accent); border-radius:0; pointer-events:none"></div>
+          <div style="position:absolute; left:69.1%; top:5.2%; width:28.2%; height:51.5%; background:#FAFAFA; pointer-events:none"></div>
+          <div style="position:absolute; left:69.1%; top:58.4%; display:flex; align-items:center; gap:10px; pointer-events:none">
+            <span style="display:inline-block; background:var(--accent); color:#FFFFFF; font:400 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.04em; padding:7px 11px; border-radius:0">452px</span>
+            <span style="font:300 13px/1.6 'Poppins',sans-serif; color:#5C5C5C; background:#F0F0F0; padding:6px 10px; border-radius:0; max-width:22ch">usable content width, no guaranteed height</span>
+          </div>
+        </div>
+        <figcaption style="font: 300 14px/1.7 'Poppins',sans-serif; color: #5C5C5C; margin: 18px 0 0; max-width: 1200px; width: 100%; height: 100%">&nbsp;The Zendesk panel,&nbsp; with the 452px column against the full window.&nbsp; The constraint is established once here and never restated.</figcaption>
+      </figure>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:96px 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">The model was confidently returning the wrong signature</h3>
+        <p style="margin:0 0 40px; text-wrap:pretty">For loss runs the constraint was survivable. The agent’s verification job was to confirm the right account, which the panel could show and the agent could judge at a glance. Signature bundles were not survivable. Once we extended past loss runs, agents had to verify signatures, and the engineer I worked with most closely brought me extraction results that were off. The cause was length: on a long policy document the model was confidently returning the wrong signature. Some states required additional signatures, and field naming and ordering were inconsistent across documents, so a page might carry one signature or two with nothing dependable to tell them apart. His read was that we needed a fallback, some way to put the PDF in front of the agent so they could confirm what had been pulled.</p>
+
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">I fixed it in the PDF exporter, not the interface</h3>
+        <p style="margin:0 0 40px; text-wrap:pretty">I did not think the first move was a fallback. I asked whether the problem could be solved before it reached the interface. I also owned PDF design at Coalition, which meant I owned how those documents exported, so I could change the input the model was reading rather than decorate the output it produced. We labelled the signature field explicitly at export, giving the extractor a named target instead of asking it to infer one from position on the page. No legal language changed and no content moved, so there was nothing for compliance to review. I told my legal and marketing partners on Slack and that was the extent of the process. Extraction improved and the issue was not raised as a concern again.</p>
+
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">Labelling fixed accuracy. It did not fix trust.</h3>
+        <p style="margin:0 0 40px; text-wrap:pretty">An agent still had no way to see where a value had come from, and I was not willing to ship a product whose core ask was “believe this.” What we landed on, and the piece that outlived this project, is what I now call <strong style="font-weight:500">Hover-to-source</strong>: hovering any machine-written value reveals the exact snippet it was lifted from, in place, without opening anything. So the fallback the engineer wanted was still needed, for a different reason than he had proposed it.</p>
+
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">Two of my own proposals died on the same 452 pixels</h3>
+        <p style="margin:0; text-wrap:pretty">I designed two fallbacks. The first was a pane that slid open with the source PDF. It failed in the most literal way possible: it consumed the panel. I had already killed one thing for exactly this reason. Earlier I had proposed a pop-out for reading long broker emails, and it died because it ate the working area and because the customer success team would not close tabs or overlays once opened, so every one became permanent clutter. The pane was the same mistake wearing different clothes. Two of my own proposals died on the same constraint, which is when I stopped treating it as an obstacle and started treating it as the brief.</p>
+      </div>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap:40px; margin:72px 0 0">
+        <figure data-killed="" style="margin:0">
+          <div style="display:flex; align-items:center; gap:12px; margin:0 0 16px">
+            <span style="display:inline-block; background:var(--accent); color:#FFFFFF; font:500 11px/1 'Poppins',sans-serif; letter-spacing:.08em; text-transform:uppercase; padding:7px 11px; border-radius:0">Rejected</span>
+            <span style="position:relative; font:500 16px/1.3 'Poppins',sans-serif; color:#111111">The correspondence pop-out<span data-strike="" style="position:absolute; left:0; top:52%; height:1px; width:0%; background:#111111; transition:width 600ms cubic-bezier(.2,.8,.2,1) 200ms"></span></span>
+          </div>
+          <div data-killed-img="" style="border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#F5F5F5; filter:grayscale(0); opacity:1; transition:filter 800ms cubic-bezier(.2,.8,.2,1), opacity 800ms cubic-bezier(.2,.8,.2,1)">
+            <img src="assets/images/03-killed-popout.png" alt="The correspondence overlay covering the Copilot panel" style="display:block; width:100%; height:auto">
+          </div>
+          <figcaption style="font:300 14px/1.7 'Poppins',sans-serif; color:#5C5C5C; margin:16px 0 0">It ate the working area, and customer success never closed overlays once opened.</figcaption>
+        </figure>
+        <figure data-killed="" style="margin:0">
+          <div style="display:flex; align-items:center; gap:12px; margin:0 0 16px">
+            <span style="display:inline-block; background:var(--accent); color:#FFFFFF; font:500 11px/1 'Poppins',sans-serif; letter-spacing:.08em; text-transform:uppercase; padding:7px 11px; border-radius:0">Rejected</span>
+            <span style="position:relative; font:500 16px/1.3 'Poppins',sans-serif; color:#111111">The sliding PDF pane<span data-strike="" style="position:absolute; left:0; top:52%; height:1px; width:0%; background:#111111; transition:width 600ms cubic-bezier(.2,.8,.2,1) 320ms"></span></span>
+          </div>
+          <div data-killed-img="" style="border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#F5F5F5; filter:grayscale(0); opacity:1; transition:filter 800ms cubic-bezier(.2,.8,.2,1), opacity 800ms cubic-bezier(.2,.8,.2,1)">
+            <img src="assets/images/04-killed-layout-v3.png" alt="The layout with the source PDF pane consuming the panel" style="display:block; width:100%; height:auto">
+          </div>
+          <figcaption style="font:300 14px/1.7 'Poppins',sans-serif; color:#5C5C5C; margin:16px 0 0">It consumed the panel. The same mistake wearing different clothes.</figcaption>
+        </figure>
+      </div>
+      <p data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); font:300 14px/1.7 'Poppins',sans-serif; color:#5C5C5C; margin:24px 0 0; max-width:640px"><span style="color:var(--accent)">D.</span> Two of my own ideas, same cause of death.</p>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:96px 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">What shipped: chain of custody as a property of the value, not a place you navigate to</h3>
+        <p style="margin:0 0 24px; text-wrap:pretty">Hover. Any extracted value reveals the exact snippet of the source document it was lifted from, in place, on demand. The agent verifies without opening the PDF, without losing the panel, and without leaving Zendesk.</p>
+        <p style="margin:0; text-wrap:pretty">The trade-off was real. Hover is not discoverable, it is poor on touch, and it makes verification optional rather than required. I gave up the guarantee that anyone would check. What I bought was that checking cost nothing, and a check that costs nothing gets done far more often than a check that costs a context switch. That is the same bet the whole product rests on, so it was at least consistent.</p>
+      </div>
+
+      <figure data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:64px 0 0">
+        <div style="border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#F5F5F5">
+          <img src="assets/images/15-hover-pattern-full.png" alt="Rest state, hover state, annotated anatomy and the source popover component" style="display:block; width:100%; height:auto">
+        </div>
+        <figcaption style="font: 300 14px/1.7 'Poppins',sans-serif; color: #5C5C5C; margin: 18px 0 0; max-width: 1200px; height: 100%; width: 100%">Rest, hover, anatomy and component. The popover is a real component at 380px fixed width, so every extracted value in the product inherits the same evidence treatment.</figcaption>
+      </figure>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:96px 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">When a model is wrong, the interface is the last place to fix it and the first place everyone looks</h3>
+        <p style="margin:0 0 40px; text-wrap:pretty">That is the lesson I would apply again before touching an interface. The signature problem was solved in the PDF exporter. The interface’s job was never to compensate for the model. It was to make the model’s work checkable at a glance, in whatever space I was given.</p>
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">The postscript I did not expect</h3>
+        <p style="margin:0; text-wrap:pretty">Some years on, my engineering manager’s view is that the simplified confirm-only version was arguably the only one we should ever have built. I take that as vindication of the instinct rather than of the timing. The simple interface was the right destination. It was not yet the right product, and building the harder one is what got us close enough to see that.</p>
+      </div>
+    </div></section>
+
+  <section id="context" style="scroll-margin-top:80px; padding:clamp(64px, 9vw, 128px) 0 0; margin-top:clamp(64px, 9vw, 128px); border-top:1px solid #E5E5E5">
+    <div style="max-width:1224px; margin:0 auto; padding:0 clamp(20px, 4vw, 48px)">
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); display:flex; flex-wrap:wrap; gap:24px 64px; align-items:baseline; margin:0 0 72px">
+        <div style="flex:0 0 200px">
+          <div style="font:500 12px/1.5 'Poppins',sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#5C5C5C">Context, scope and framing</div>
+        </div>
+        <div style="flex:1 1 420px"><h2 style="font:500 clamp(30px, 4vw, 44px)/1.1 'Poppins',sans-serif; letter-spacing:0; margin:0 0 20px; max-width:26ch; text-wrap:pretty">Support volume grew 50% a year. Headcount did not.</h2><p style="font:400 clamp(16px, 1.3vw, 19px)/1.6 'Poppins',sans-serif; color:#5C5C5C; margin:0; max-width:54ch; text-wrap:pretty">Loss runs were the highest-volume request in the queue and the one with the least judgement in it, which made them the honest place to start.</p></div>
+      </div>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin-left:clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
+        <p style="margin:0 0 24px; text-wrap:pretty">That is a straightforward margin problem before it is a design problem: every additional thousand tickets a month either degrades service levels or adds people. Leadership framed the goal as letting customer success scale volume without scaling headcount linearly, while improving response times rather than trading them away.</p>
+        <p style="margin:0 0 56px; text-wrap:pretty">Loss runs were chosen as the first target because they were the cleanest mechanical case in the queue, not because they were the most painful. About 1,500 a month, roughly 10% of all tickets, spiking to 2,400 in a heavy month. Five minutes of agent time each, spread across seven steps in tools that did not talk to each other. Automating them removed an estimated 700 to 1,000 tickets a month from the queue on its own, and more importantly it created a template for everything after it.</p>
+
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">Sole designer, discovery through launch and two years of expansion</h3>
+        <p style="margin:0 0 24px; text-wrap:pretty">I owned the interaction model, the runbook pattern, the trust boundary, the panel architecture, and the microcopy. I worked directly with one machine learning engineer, the platform engineers, and a PM, and I reported to the Head of Design and the Chief Product Officer.</p>
+        <p style="margin:0 0 24px; text-wrap:pretty">I also helped define the success criteria the program was measured on, which is not a thing designers are usually invited to do and is the part of this project I would point at first. It is also the part I got wrong, and the reflection at the end is about that.</p>
+        <p style="margin:0 0 56px; text-wrap:pretty">Two things I did not own: the model itself and the underlying pipeline architecture. I shaped what the model was asked to produce and what the product did when it was wrong, which is a different job from building it, and I try to be precise about the difference.</p>
+      </div>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:0 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">The real problem was not automation. It was whether to trust one specific proposal.</h3>
+        <p style="margin:0 0 32px; text-wrap:pretty">The assigned problem was “automate loss runs.” The actual problem was narrower and harder to state:</p>
+      </div>
+      <blockquote data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:0 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:820px; border-left:2px solid var(--accent); padding:4px 0 4px 32px">
+        <p style="font:500 clamp(21px, 2.4vw, 27px)/1.42 'Poppins',sans-serif; letter-spacing:0; color:#111111; margin:0; text-wrap:pretty">An agent needs to decide whether to trust a specific machine-generated proposal, in under a few seconds, without leaving the ticket, and the cost of trusting a wrong one is a broker receiving an incorrect document.</p>
+      </blockquote>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:40px 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
+        <p style="margin:0 0 24px; text-wrap:pretty">That framing is testable in a way the brief was not. It names who is affected, where the decision happens, what has to fit in the available time and space, and what failure looks like. Every design decision that follows either serves that sentence or it does not.</p>
+        <p style="margin:0 0 24px; text-wrap:pretty">Three constraints were fixed going in. The panel width, which I have already spent a section on. The tool boundary: agents work in Zendesk and any solution that moves them out of it spends the time it was built to save. And a limited internal model, where engineering did not want to spend unnecessary calls on work that might fail anyway.</p>
+        <p style="margin:0 0 56px; text-wrap:pretty">The last one shaped the interface more than it looks like it should have. It is why the runbook is a stepper rather than a single generated block: decomposing the work into discrete verifiable steps meant a failure at step two did not waste the calls for steps three and four, and it gave the agent somewhere specific to look when something was off. A structural constraint from engineering became the organizing logic of the UI.</p>
+
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">The five minutes was never thinking time. It was seven context switches.</h3>
+        <p style="margin:0 0 24px; text-wrap:pretty">I did not come to this cold. I had spent years on the internal tools these same agents used, including the quoting redesign, which meant I had the relationships before I had the project. I had spent time in the Provo office with the customer success team and I ran the testing sessions myself. When I say the team would not close tabs or overlays, that is observed behaviour from watching them work, not a usability heuristic.</p>
+        <p style="margin:0; text-wrap:pretty">The decisive finding was about where the time actually went. Five minutes per loss run is not five minutes of thinking. It is seven context switches, each cheap on its own, and the reason the task felt heavy was the switching rather than the judgment. That reframed the target. The product did not need to make agents faster at the task. It needed to collapse the task into one place, and then the speed followed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="model" style="scroll-margin-top:80px; padding:clamp(64px, 9vw, 128px) 0 0; margin-top:clamp(64px, 9vw, 128px); border-top:1px solid #E5E5E5">
+    <div style="max-width:1224px; margin:0 auto; padding:0 clamp(20px, 4vw, 48px)">
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); display:flex; flex-wrap:wrap; gap:24px 64px; align-items:baseline; margin:0 0 72px">
+        <div style="flex:0 0 200px">
+          <div style="font:500 12px/1.5 'Poppins',sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#5C5C5C">The interaction model</div>
+        </div>
+        <div style="flex:1 1 420px"><h2 style="font:500 clamp(30px, 4vw, 44px)/1.1 'Poppins',sans-serif; letter-spacing:0; margin:0 0 20px; max-width:26ch; text-wrap:pretty">What the AI claims sits in a box. What the human does does not.</h2><p style="font:400 clamp(16px, 1.3vw, 19px)/1.6 'Poppins',sans-serif; color:#5C5C5C; margin:0; max-width:54ch; text-wrap:pretty">Separating machine assertions from human workspace let agents scan for the one thing worth checking instead of re-reading the whole panel.</p></div>
+      </div>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin-left:clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
+        <p style="margin:0; text-wrap:pretty">The interface makes a visual distinction between assertions and workspace. Everything the model has concluded lives in a filled, collapsible grey card headed “Step 1: Verify Request Details.” Everything the agent does sits on plain white. Contain what the AI claims, leave the human’s area uncontained. The heading verb is “Verify” rather than “Review,” because review is passive and verify names an action with a right answer.</p>
+      </div>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:96px 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
+        <h3 style="font:500 clamp(22px, 2.2vw, 26px)/1.3 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">Confidence scores existed, and I kept them out of the panel</h3>
+        <p style="margin:0 0 20px; text-wrap:pretty">The system produced them. <code style="font:400 15px/1 ui-monospace,SFMono-Regular,Menlo,monospace; background:#F0F0F0; padding:3px 6px; border-radius:0">copilot_failed</code>, <code style="font:400 15px/1 ui-monospace,SFMono-Regular,Menlo,monospace; background:#F0F0F0; padding:3px 6px; border-radius:0">language_confidence__high</code>, <code style="font:400 15px/1 ui-monospace,SFMono-Regular,Menlo,monospace; background:#F0F0F0; padding:3px 6px; border-radius:0">sentiment_confidence__high</code> all existed as ticket tags. I chose not to surface them to agents. A confidence score invites people to trust the machine’s self-report instead of the evidence, and a model that is confidently wrong is exactly the failure mode we already had. I would rather an agent glance at a source snippet than read a number the model assigned itself.</p>
+      </div>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:56px 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:820px; background:#F5F5F5; border:1px solid #E5E5E5; border-radius:0; padding:clamp(28px, 3.5vw, 48px)">
+        <h3 style="font:500 clamp(22px, 2.2vw, 26px)/1.3 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px; max-width:none; text-wrap:pretty">How much the system does on its own depends on the request, not a on/off switch someone flips.</h3>
+        <p style="font:300 17px/1.8 'Poppins',sans-serif; margin:0 0 32px; text-wrap:pretty">The system only handles a request on its own when three things are true: the request names a specific policy and the customer’s policies all live in one place, the records stay clean even when a policy changes hands between agencies, and the person asking is clearly the right person to ask. That covers roughly 55 to 70% of loss run requests. Everything else goes to a person. Writing those three conditions down is what let us widen the scope later without arguing about trust all over again.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap:24px; border-top:1px solid #E5E5E5; padding-top:28px">
+          <div style="display:flex; gap:12px"><span style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C">Policy number present, one account</span></div>
+          <div style="display:flex; gap:12px"><span style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C">Policies separable across agency transfers</span></div>
+          <div style="display:flex; gap:12px"><span style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C">Requester is broker of record or same agency</span></div>
+        </div>
+      </div>
+
+      <figure data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:72px 0 0">
+        <div style="border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#F5F5F5">
+          <img src="assets/images/09-account-matching.png" alt="The supervised runbook filled in, with the generated document attached and ready to send" style="display:block; width:100%; height:auto">
+        </div>
+        <figcaption style="font: 300 14px/1.7 'Poppins',sans-serif; color: #5C5C5C; margin: 18px 0 0; max-width: 1200px; width: 100%; height: 100%">The supervised path. Intent and work type filled, the reply drafted, the generated loss run attached, and every one of those still editable before submit. Personal details blurred.</figcaption>
+      </figure>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:96px 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
+        <h3 style="font:500 clamp(22px, 2.2vw, 26px)/1.3 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">Where I lost one: auto-selecting intent</h3>
+        <p style="margin:0 0 56px; text-wrap:pretty">The PM wanted intent and work type auto-selected rather than left for the agent to confirm, because he was not confident the context would survive otherwise. I would have preferred confirmation as an explicit act. He was closer to the failure cases than I was and I took the call. It is the decision I am least settled on and I would look at it again with the data we now have.</p>
+
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">Designing the failure path as a real path, not an error state</h3>
+        <p style="margin:0 0 24px; text-wrap:pretty">The 80% acceptance rate was the number at launch rather than something we climbed to, which meant the interesting design work was in the remainder. It split cleanly in two. Some were account matching problems, where the request could not be tied confidently to one account, and those got a dedicated search and disambiguation flow. The rest had a claim attached, which needs a specialist rather than better matching, so those route out: a dropdown of specialized users and an “Assign to agent” action.</p>
+        <p style="margin:0; text-wrap:pretty">A tool that works four times out of five and dead-ends on the fifth teaches people to check it manually every time. Designing the fifth case as a route rather than a wall is most of why agents kept using the product.</p>
+      </div>
+
+      <figure data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:64px 0 0">
+        <div style="border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#F5F5F5">
+          <img src="assets/images/19-assign-to-agent.png" alt="The blocked state and the specialist picker, with current load shown per specialist" style="display:block; width:100%; height:auto">
+        </div>
+        <figcaption style="font:300 14px/1.7 'Poppins',sans-serif; color:#5C5C5C; margin:18px 0 0; max-width:640px">The fifth case. Copilot says plainly that it cannot act and why, then the specialist list is scoped to people qualified for claims-attached requests with current load shown, so the agent does not send it into a queue.</figcaption>
+      </figure>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:96px 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">What would not have happened without me: the upstream PDF fix</h3>
+        <p style="margin:0 0 24px; text-wrap:pretty">Nobody else was looking outside the interface for the cause of an interface problem, and I was the only person who owned both the exporter and the panel.</p>
+        <p style="margin:0 0 24px; text-wrap:pretty">The hover pattern crossing into claims is the second. I was also the designer on the claims workbench, which had the identical shape: extracted values from long invoices that nobody would open a document to confirm. I took it to that team and their PMs as reuse of something that already existed and worked, which was an easier conversation than a new pattern would have been, though claims had never used Copilot at all so I had to demonstrate the product before I could demonstrate the pattern. Labelled fields and hover to source now run in both verticals. The broader runbook and containment model went further: three teams, including underwriting workbench and claims, built their own AI features on it.</p>
+        <p style="margin:0; text-wrap:pretty">I worked the trust boundary jointly with the machine learning engineer, and the eligibility criteria came out of that back and forth rather than from either side alone.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="outcomes" style="scroll-margin-top:80px; padding:clamp(64px, 9vw, 128px) 0 0; margin-top:clamp(64px, 9vw, 128px); border-top:1px solid #E5E5E5">
+    <div style="max-width:1224px; margin:0 auto; padding:0 clamp(20px, 4vw, 48px)">
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); display:flex; flex-wrap:wrap; gap:24px 64px; align-items:baseline; margin:0 0 72px">
+        <div style="flex:0 0 200px">
+          <div style="font:500 12px/1.5 'Poppins',sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#5C5C5C">Outcomes</div>
+        </div>
+        <h2 style="flex:1 1 420px; font:500 clamp(30px, 4vw, 44px)/1.1 'Poppins',sans-serif; letter-spacing:0; margin:0; max-width:26ch; text-wrap:pretty">65% at peak, and what happened to the number when coverage expanded</h2>
+      </div>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap:40px; margin:0 0 72px">
+        <div>
+          <div style="height:1px; background:#111111; margin:0 0 20px"></div>
+          <div data-count="65" data-suffix="%" style="font:500 clamp(38px, 4.4vw, 60px)/1 'Poppins',sans-serif; letter-spacing:0; color:var(--accent); margin:0 0 14px">65%</div>
+          <div style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C">of loss run requests automated end to end at peak, over 7,000 tickets and running at roughly 1,000 a month</div>
+        </div>
+        <div>
+          <div style="height:1px; background:#111111; margin:0 0 20px"></div>
+          <div style="font:500 clamp(28px, 3.2vw, 40px)/1.06 'Poppins',sans-serif; letter-spacing:0; color:#111111; margin:0 0 14px">10.88 min<br><span style="color:#5C5C5C">to</span> 0.25 min</div>
+          <div style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C">average handle time on automated tickets, across the first seven months</div>
+        </div>
+        <div>
+          <div style="height:1px; background:#111111; margin:0 0 20px"></div>
+          <div data-count="235" data-prefix="~" data-suffix=" hrs" style="font:500 clamp(38px, 4.4vw, 60px)/1 'Poppins',sans-serif; letter-spacing:0; color:#111111; margin:0 0 14px">~235 hrs</div>
+          <div style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C">of customer success time returned per month</div>
+        </div>
+        <div>
+          <div style="height:1px; background:#111111; margin:0 0 20px"></div>
+          <div data-count="98" data-prefix="&gt;" data-suffix="%" style="font:500 clamp(38px, 4.4vw, 60px)/1 'Poppins',sans-serif; letter-spacing:0; color:#111111; margin:0 0 14px">&gt;98%</div>
+          <div style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C">LLM coverage identifying loss run requests</div>
+        </div>
+      </div>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin-left:clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
+        <p style="margin:0 0 24px; text-wrap:pretty">Loss run automation reached 65% at its peak. Across the two years since, the blended rate sits near 50% as Copilot expanded into bind requests, broker documents and quote changes, so the percentage fell while the volume it handled rose.</p>
+        <p style="margin:0 0 24px; text-wrap:pretty">The pattern generalized to bind requests, signature bundles and renewals. Measured against control groups: bind requests down 32% on one-touch tickets and 22% on multi-touch, signature bundles down 37.3% and 61.2%, quote changes down 27%.</p>
+        <p style="margin:0; text-wrap:pretty">Three teams reused Hover-to-source, the pattern behind that panel, for their own AI features, including the underwriting workbench and claims.</p>
+      </div>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:72px 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:820px; border-left:2px solid var(--accent); padding:4px 0 4px 32px">
+        <p style="font:500 clamp(24px, 3vw, 34px)/1.34 'Poppins',sans-serif; letter-spacing:0; color:#111111; margin:0 0 16px">“Oh my goodness! That was so easy!”</p>
+        <p style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C; margin:0">The reaction I keep, from launch day, captured on video while the team was using it for the first time.</p>
+      </div>
+
+      <figure data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:72px 0 0">
+        
+        
+      </figure>
+    </div>
+  </section>
+
+  <section id="reflection" style="scroll-margin-top:80px; padding:clamp(64px, 9vw, 128px) 0 0; margin-top:clamp(64px, 9vw, 128px); border-top:1px solid #E5E5E5">
+    <div style="max-width:1224px; margin:0 auto; padding:0 clamp(20px, 4vw, 48px)">
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); display:flex; flex-wrap:wrap; gap:24px 64px; align-items:baseline; margin:0 0 72px">
+        <div style="flex:0 0 200px">
+          <div style="font:500 12px/1.5 'Poppins',sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#5C5C5C">Reflection</div>
+        </div>
+        <div style="flex:1 1 420px"><h2 style="font:500 clamp(30px, 4vw, 44px)/1.1 'Poppins',sans-serif; letter-spacing:0; margin:0 0 20px; max-width:26ch; text-wrap:pretty">The way I chose to measure success did not work</h2><p style="font:400 clamp(16px, 1.3vw, 19px)/1.6 'Poppins',sans-serif; color:#5C5C5C; margin:0; max-width:54ch; text-wrap:pretty">I folded product measurement and model evaluation into one metric, and it quietly counted the AI as wrong every time an agent simply moved on.</p></div>
+      </div>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin-left:clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
+        <p style="margin:0 0 24px; text-wrap:pretty">I set up how we would measure success at the same time as designing the product. The main number was how often agents used the AI’s draft as-is, how often they edited it, and how often they ignored it. When someone changed the draft, we asked them why. The idea was that all those small corrections would pile up into a record of what the AI got right and wrong, so the product would grade itself as it went and we would not need a separate effort to check it.</p>
+        <p style="margin:0 0 24px; text-wrap:pretty">That idea did not hold up, and I would not do it that way again.</p>
+        <p style="margin:0 0 24px; text-wrap:pretty">When a draft was not quite right, agents did not fix it. They skipped it and moved on, which was the sensible choice: fixing it cost them time and gave them nothing back. So “ignored” ended up meaning two completely different things at once, “the AI was wrong” and “this was not worth my time,” and it counted the AI as wrong plenty of times when it had actually been right. On top of that, we were asking people using a time-saving tool to spend time helping us train it, which works against itself. We had already learned that lesson once, trying to collect reasons when agents turned business away.</p>
+        <p style="margin:0 0 24px; text-wrap:pretty">The fix is to separate two things I had rolled into one. What the product records should tell you whether people use it and how, and it can do that honestly because it asks nothing extra of them. Judging whether the AI is actually correct needs its own set of checked examples, with real time and people behind it. Using the first as a stand-in for the second was convenient and wrong.</p>
+        <p style="margin:0 0 56px; text-wrap:pretty">I still think “used as-is, edited, ignored” is worth tracking. I would just stop calling it a measure of how good the AI is and call it what it really is: a measure of whether people find the output worth using.</p>
+
+        <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">Two other things I would change</h3>
+        <p style="margin:0 0 24px; text-wrap:pretty">The early wins came from the straightforward requests, and I underestimated how long the messy ones would take. Attachments, renewals, several quotes at once, odd start dates and policies rewritten mid-term each needed their own round of work, and full start-to-finish automation is still only partly there. I would build the messy cases into the original plan instead of treating them as clean-up afterwards.</p>
+        <p style="margin:0; text-wrap:pretty">The harder problem turned out not to be how many cases we covered. It was getting people to reach for the tool every time, not just on the tickets they already expect to be easy, even though it is right four times out of five. I would have designed for that habit from the first release instead of assuming a good tool earns it on its own.</p>
+      </div>
+
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:112px 0 0; background:#111111; color:#FFFFFF; border-radius:0; padding:clamp(40px, 5vw, 72px) clamp(28px, 4vw, 64px)">
+        <div style="display:flex; align-items:baseline; gap:16px; margin:0 0 40px">
+          <span style="font:500 12px/1 'Poppins',sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#A7A7A7">The AI layer</span>
+        </div>
+        <h2 style="font:500 clamp(28px, 3.6vw, 44px)/1.1 'Poppins',sans-serif; letter-spacing:0; margin:0 0 56px; max-width:22ch; color:#FFFFFF; text-wrap:pretty">Designing for the model being wrong</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap:48px">
+          <p style="font:300 17px/1.8 'Poppins',sans-serif; color:#DCDCDC; margin:0; text-wrap:pretty"><strong style="color:#FFFFFF; font-weight:600">The AI product.</strong> The substance of this project is what happens when the model is wrong. The runbook exists so a wrong answer is visible before it is actioned. Hover-to-source exists so checking costs nothing. Confidence scores were deliberately withheld so agents verify from evidence rather than from the model’s opinion of itself. Eligibility criteria exist so autonomy expands deliberately rather than by default. And the signature fix is the clearest statement of the whole approach: when a model is wrong, the interface is usually the last place to fix it and the first place everyone looks.</p>
+          <p style="font:300 17px/1.8 'Poppins',sans-serif; color:#DCDCDC; margin:0; text-wrap:pretty"><strong style="color:#FFFFFF; font-weight:600">Measuring AI design quality.</strong> I defined what quality meant for this feature, and the definition was half wrong, which is the part I would want to talk about longest. Time saved measures the system. The proportion of proposals a human uses without changing anything measures whether the design earned trust. What it cannot measure, and what I asked it to, is whether the model was right. That distinction took two years and a correction from my engineering manager to see clearly, and it is the thing I would bring to the next AI product on day one.</p>
+          <p style="font:300 17px/1.8 'Poppins',sans-serif; color:#DCDCDC; margin:0; text-wrap:pretty"><strong style="color:#FFFFFF; font-weight:600">Designing with AI.</strong> Not on this project, which predates most of the current toolkit, but on the work that followed it. I now prototype daily in Figma, Cursor and Claude, including a sandbox package inside Coalition’s production repository that runs full screens against real-shaped fixture data through the live provider tree and design system, with unit tests, so interaction decisions get tested before anything is wired. Design-authored pull requests ship against the production codebase. Figma approached me as one of the top AI users on my team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:clamp(64px, 9vw, 128px) 0 clamp(64px, 8vw, 112px); margin-top:clamp(64px, 9vw, 128px); border-top:1px solid #E5E5E5">
+    <div style="max-width:1224px; margin:0 auto; padding:0 clamp(20px, 4vw, 48px)">
+      <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1)">
+        
+        
+        <p style="font:400 clamp(18px, 1.54vw, 24px)/1.7 'Poppins',sans-serif; color:#111111; margin:0 0 40px; max-width:44ch; text-wrap:pretty">Open to staff and principal product design roles working on AI inside complex, high-density products.</p>
+        <div style="display:flex; flex-wrap:wrap; align-items:baseline; gap:12px 28px; padding-top:40px; border-top:1px solid #111111">
+          <span style="font:500 18px/1.4 'Poppins',sans-serif; color:#111111">Shamraiz Gul</span>
+          <a href="mailto:Shamraizgulpd@gmail.com" style="font:400 17px/1.5 'Poppins',sans-serif; color:var(--accent); border-bottom:1px solid currentColor; padding-bottom:2px">Shamraizgulpd@gmail.com</a>
+          <a href="https://www.linkedin.com/in/shamraiz" style="font:400 17px/1.5 'Poppins',sans-serif; color:var(--accent); border-bottom:1px solid currentColor; padding-bottom:2px">linkedin.com/in/shamraiz</a>
+          <a href="https://shamraizgul.com" style="font:400 17px/1.5 'Poppins',sans-serif; color:var(--accent); border-bottom:1px solid currentColor; padding-bottom:2px">shamraizgul.com</a>
+        </div>
+        
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

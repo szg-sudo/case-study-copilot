@@ -1,0 +1,29 @@
+/* Page-level rules. Everything else is authored inline on the elements,
+   which is how the design was built — see design_handoff README. Tokens
+   come from tokens.css and are the source of truth for values. */
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--sg-white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: var(--sg-black); text-decoration: none; }
+a:hover { color: var(--sg-muted); }
+
+::selection { background: var(--sg-rule); }
+
+/* The sticky nav dies if any ancestor becomes a scroll container.
+   clip gives horizontal clipping without creating one. */
+[data-root] { overflow-x: clip; }
+
+/* Reveal-on-scroll elements are hidden until the observer in script.js
+   promotes them. script.js also force-reveals anything still hidden after
+   3s, so a failed observer can never leave the page blank. */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+:focus-visible { outline: 2px solid var(--sg-accent); outline-offset: 3px; }
