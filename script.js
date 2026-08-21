@@ -162,8 +162,10 @@
     })(t0);
   }
 
-  /* Hover-to-source: cross-fade the two stacked stills. Touch devices have
-     no hover, so the rest state stays the meaningful one. */
+  /* Hover-to-source: cross-fade the two stacked stills. Pointer devices get
+     hover. Touch devices have no hover, so they get tap-to-toggle plus a
+     one-time auto demo when the frame scrolls in, or the signature
+     interaction of the case study never reads on a phone. */
   function wireHover(root) {
     var box = root.querySelector('[data-hoverswap]');
     if (!box) return;
@@ -171,6 +173,8 @@
     var active = box.querySelector('[data-swap="active"]');
     var hint = box.querySelector('[data-hint]');
     if (!rest || !active) return;
+
+    var coarse = !!(window.matchMedia && window.matchMedia('(hover: none)').matches);
 
     var on = function () {
       rest.style.opacity = '0';
@@ -180,13 +184,54 @@
     var off = function () {
       rest.style.opacity = '1';
       active.style.opacity = '0';
+      if (coarse && hint) hint.style.opacity = '1';
     };
 
-    box.addEventListener('pointerenter', on);
-    box.addEventListener('pointerleave', off);
-    box.addEventListener('focusin', on);
-    box.addEventListener('focusout', off);
     off();
+
+    if (!coarse) {
+      box.addEventListener('pointerenter', on);
+      box.addEventListener('pointerleave', off);
+      box.addEventListener('focusin', on);
+      box.addEventListener('focusout', off);
+      return;
+    }
+
+    /* On touch the panel is the control, so label it and make it operable. */
+    var label = box.querySelector('[data-hint-label]');
+    if (label) label.textContent = 'Tap the panel to see Hover-to-source';
+    box.style.cursor = 'pointer';
+    box.setAttribute('role', 'button');
+    box.setAttribute('tabindex', '0');
+    box.setAttribute('aria-label', 'Show the source snippet behind the extracted value');
+
+    var shown = false;
+    var toggle = function (e) {
+      if (e && e.preventDefault) e.preventDefault();
+      shown = !shown;
+      if (shown) on(); else off();
+    };
+    box.addEventListener('click', toggle);
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') toggle(e);
+    });
+
+    /* One-time auto demo on first view, so the pattern reads even if nobody
+       taps. Skipped under reduced motion. */
+    if (reduce || !hasIO) return;
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (!entries[i].isIntersecting) continue;
+        io.disconnect();
+        setTimeout(function () {
+          if (shown) return;
+          on();
+          setTimeout(function () { if (!shown) off(); }, 1600);
+        }, 500);
+        return;
+      }
+    }, { threshold: 0.5 });
+    io.observe(box);
   }
 
   function wireNav(root) {

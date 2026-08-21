@@ -3,17 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Automating Coalition's support queue — Shamraiz Gul</title>
+<title>Automating Coalition's support queue | Shamraiz Gul</title>
 <meta name="description" content="Coalition's first AI product, shipped in three months. A 1,500-ticket-a-month support queue taken to 65% end-to-end automation, and the interaction pattern behind it.">
 <meta name="author" content="Shamraiz Gul">
-<link rel="canonical" href="https://casestudy.shamraizgul.com/">
+<link rel="canonical" href="https://szg-sudo.github.io/case-study-copilot/">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Automating Coalition's support queue — Shamraiz Gul">
-<meta property="og:description" content="Coalition's first AI product, shipped in three months. Four out of five AI proposals shipped untouched.">
-<meta property="og:image" content="https://casestudy.shamraizgul.com/assets/images/15-hover-pattern-full.png">
-<meta property="og:url" content="https://casestudy.shamraizgul.com/">
+<meta property="og:title" content="Automating Coalition's support queue | Shamraiz Gul">
+<meta property="og:description" content="Coalition's first AI product, shipped in three months. Four out of five AI proposals used without an edit.">
+<meta property="og:image" content="https://szg-sudo.github.io/case-study-copilot/assets/images/og-cover.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="838">
+<meta property="og:image:alt" content="The Hover-to-source pattern: an extracted value and the source snippet it was lifted from.">
+<meta property="og:url" content="https://szg-sudo.github.io/case-study-copilot/">
 <meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#111111">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +33,7 @@
 
   <nav style="position:sticky; top:0; z-index:60; background:rgba(255,255,255,.9); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid #E5E5E5">
     <div style="max-width:1224px; margin:0 auto; padding:0 clamp(20px, 4vw, 48px); min-height:60px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 32px; padding-top:10px; padding-bottom:10px">
-      <a href="https://www.shamraizgul.com" style="font:500 14px/1 'Poppins',sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#111111; white-space:nowrap" target="_blank" rel="noopener noreferrer">Shamraiz Gul</a>
+      <a href="www.shamraizgul.com" style="font:500 14px/1 'Poppins',sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#111111; white-space:nowrap" target="_blank" rel="noopener noreferrer">Shamraiz Gul</a>
       <div style="display:flex; flex-wrap:wrap; justify-content:flex-end; align-items:center; gap:8px 20px; font:400 13px/1 'Poppins',sans-serif; letter-spacing:.01em">
         <a href="#quick-view" data-navlink="quick-view" style="color:#5C5C5C; transition:color 200ms cubic-bezier(.2,.8,.2,1)">Summary</a>
         <a href="#decision" data-navlink="decision" style="color:#5C5C5C; transition:color 200ms cubic-bezier(.2,.8,.2,1)">The decision</a>
@@ -48,10 +54,10 @@
         <span style="font:500 12px/1 'Poppins',sans-serif; letter-spacing:.08em; text-transform:uppercase; color:#5C5C5C">Coalition, Inc. · Cyber insurance · Launched late 2024, still expanding in 2026</span>
       </div>
 
-      <h1 data-reveal="" style="opacity: 0; transform: translateY(16px); transition: opacity 700ms cubic-bezier(.2,.8,.2,1) 60ms, transform 700ms cubic-bezier(.2,.8,.2,1) 60ms; font: 500 clamp(38px, 6.4vw, 76px)/1.02 'Poppins',sans-serif; letter-spacing: 0; margin: 0 0 40px; max-width: 22ch; text-wrap: pretty; line-height: 83.82px">Automating Coalition’s support queue: Four out of Five AI proposals shipped untouched</h1>
+      <h1 data-reveal="" style="opacity: 0; transform: translateY(16px); transition: opacity 700ms cubic-bezier(.2,.8,.2,1) 60ms, transform 700ms cubic-bezier(.2,.8,.2,1) 60ms; font: 500 clamp(38px, 6.4vw, 76px)/1.02 'Poppins',sans-serif; letter-spacing: 0; margin: 0 0 40px; max-width: 22ch; text-wrap: pretty; line-height: 83.82px">Automating Coalition’s support queue: four out of five AI proposals used without an edit</h1>
 
       <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1) 120ms, transform 700ms cubic-bezier(.2,.8,.2,1) 120ms; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap:48px 64px; align-items:start; margin:0 0 80px">
-        <p style="font:400 clamp(18px, 1.54vw, 24px)/1.7 'Poppins',sans-serif; letter-spacing:0; color:#111111; max-width:34ch; margin:0; text-wrap:pretty">Coalition’s first AI product, shipped in three months. It took a 1,500-ticket-a-month queue to 65% end-to-end automation at peak, then expanded into three more ticket types, and the pattern behind it runs in three other teams.</p>
+        <p style="font:400 clamp(18px, 1.54vw, 24px)/1.7 'Poppins',sans-serif; letter-spacing:0; color:#111111; max-width:34ch; margin:0; text-wrap:pretty">Coalition’s first AI product, shipped in three months. It took a 1,500-ticket-a-month queue to 65% end-to-end automation at peak, then expanded into three more ticket types, and the pattern behind it now runs in three teams.</p>
 
         <div style="border: 1px solid #E5E5E5; padding: clamp(24px, 2.6vw, 32px); border-width: 2px; border-color: #E5E5E571">
           <div style="display:flex; flex-wrap:wrap; gap:10px; margin:0 0 24px">
@@ -65,17 +71,17 @@
     </div><div style="max-width:1224px; margin:0 auto; padding:0 clamp(20px, 4vw, 48px)">
       <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap:64px; align-items:center">
         <div data-hoverswap="" style="position:relative; width:100%; aspect-ratio:1064/954; border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#F5F5F5; cursor:crosshair">
-          <img src="assets/images/16-hover-rest.png" alt="Copilot panel at rest, the extracted broker of record value carrying a dotted underline" data-swap="rest" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:opacity 260ms cubic-bezier(.2,.8,.2,1)">
-          <img src="assets/images/17-hover-active.png" alt="The same panel with the source popover open, showing the snippet the value was lifted from" data-swap="active" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 260ms cubic-bezier(.2,.8,.2,1)">
+          <img src="assets/images/16-hover-rest.webp" alt="Copilot panel at rest, the extracted broker of record value carrying a dotted underline" data-swap="rest" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:opacity 260ms cubic-bezier(.2,.8,.2,1)">
+          <img src="assets/images/17-hover-active.webp" alt="The same panel with the source popover open, showing the snippet the value was lifted from" data-swap="active" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 260ms cubic-bezier(.2,.8,.2,1)">
           <div data-hint="" style="position:absolute; left:16px; bottom:16px; display:flex; align-items:center; gap:8px; background:rgba(17,17,17,.9); color:#FFFFFF; border-radius:0; padding:8px 14px; font:400 12px/1 'Poppins',sans-serif; letter-spacing:.02em; transition:opacity 300ms cubic-bezier(.2,.8,.2,1)">
             <span style="width:5px; height:5px; border-radius:0; background:#FFFFFF"></span>
-            Hover the panel to see Hover-to-source
+            <span data-hint-label="">Hover the panel to see Hover-to-source</span>
           </div>
         </div>
         <div>
           <p style="font: 400 13px/1 ui-monospace,SFMono-Regular,Menlo,monospace; color: var(--accent); letter-spacing: .04em; margin: 0 0 20px; font-family: Poppins; font-weight: 400; text-transform: capitalize">NEW INTERACTION</p>
           <p style="font:300 clamp(17px, 1.54vw, 19px)/1.8 'Poppins',sans-serif; color:#111111; max-width:34ch; margin:0 0 20px; text-wrap:pretty">Hover-to-source showed the source of truth right inside the Zendesk panel. A machine assertion and the evidence for it, in the same panel.</p>
-          <p style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C; max-width:38ch; margin:0">The whole product in one frame. The panel proposes, the snippet proves, and the agent never leaves the ticket.</p>
+          <p style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C; max-width:38ch; margin:0">The whole product in one frame. The panel proposes, the snippet proves, and the agent stays in the ticket.</p>
         </div>
       </div>
     </div>
@@ -116,7 +122,7 @@
           <div>
             <div style="height:1px; background:#111111; margin:0 0 20px"></div>
             <div data-count="3" style="font:500 clamp(42px, 5vw, 68px)/1 'Poppins',sans-serif; letter-spacing:0; color:#111111; margin:0 0 14px">3</div>
-            <div style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C">teams reused Hover-to-source for their own AI features</div>
+            <div style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C">teams run on the runbook and containment model: customer success, claims and the underwriting workbench</div>
           </div>
         </div>
         
@@ -124,7 +130,7 @@
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap:48px; border-top:1px solid #E5E5E5; padding-top:48px">
           <p style="font:300 17px/1.8 'Poppins',sans-serif; color:#111111; margin:0; text-wrap:pretty">Coalition’s customer success team was absorbing roughly 14,000 Zendesk tickets a month, growing 50% year over year against a headcount plan that was not. Loss runs were 10% of that queue: 1,500 tickets a month, five minutes and seven tool switches each. Mechanical enough to automate, and risky enough that getting it wrong meant a broker receiving an incorrect document.</p>
           <p style="font:300 17px/1.8 'Poppins',sans-serif; color:#111111; margin:0; text-wrap:pretty">The hardest decision was not what the AI should do. It was what it should be allowed to do without asking. I designed Customer Success Copilot around a runbook: before acting, it shows the task it intends to perform, the data it extracted, the internal actions it plans to take, and the reply it drafted. The agent approves, edits, or ignores it. Nothing happens silently. Full autonomy is unlocked per scenario, behind eligibility criteria I defined with engineering, rather than granted to the system as a whole.</p>
-          <p style="font:300 17px/1.8 'Poppins',sans-serif; color:#111111; margin:0; text-wrap:pretty">That structure is why the numbers held. At launch agents applied the proposal unedited roughly 80% of the time, which says the suggestions were good enough to use as-is rather than merely fast. The runbook then generalized past its original use into bind requests, signature bundles and renewals, and three teams including underwriting workbench and claims picked it up for AI features I had nothing to do with.</p>
+          <p style="font:300 17px/1.8 'Poppins',sans-serif; color:#111111; margin:0; text-wrap:pretty">That structure is why the numbers held. At launch agents applied the proposal unedited roughly 80% of the time, which says the suggestions were good enough to use as-is rather than merely fast. The runbook then generalized past its original use into bind requests, signature bundles and renewals, and it now runs in three teams: customer success, where it was built, plus claims and the underwriting workbench, the last two building AI features I had nothing to do with.</p>
         </div>
 
         <div style="border-top:1px solid #E5E5E5; margin-top:48px; padding-top:32px; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap">
@@ -156,7 +162,7 @@
       <figure data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:72px 0 0">
         <div style="border:1px solid #E5E5E5; overflow:hidden; background:#F5F5F5">
           <img src="assets/images/05-confirm-vs-edit.webp" alt="The proposed confirm-only state beside the edit-first state that shipped" style="display:block; width:100%; height:auto">
-        </div><figcaption style="font:300 14px/1.7 'Poppins',sans-serif; color:#5C5C5C; margin:18px 0 0; max-width:700px">The proposed confirm-only state beside the edit-first state that shipped, annotated with the vertical cost of each. Include the pinned-app column so the space competition is visible.</figcaption>
+        </div><figcaption style="font:300 14px/1.7 'Poppins',sans-serif; color:#5C5C5C; margin:18px 0 0; max-width:700px">The proposed confirm-only state beside the edit-first state that shipped, annotated with the vertical cost of each.</figcaption>
         
       </figure>
 
@@ -168,7 +174,7 @@
 
       <figure data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:64px 0 0">
         <div style="position:relative; width:100%; border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#F5F5F5">
-          <img src="assets/images/01-zendesk-panel-in-situ.png" alt="The Copilot panel inside the full Zendesk agent window" style="display:block; width:100%; height:auto">
+          <img src="assets/images/01-zendesk-panel-in-situ.webp" alt="The Copilot panel inside the full Zendesk agent window" style="display:block; width:100%; height:auto">
           <div style="position:absolute; left:69.1%; top:5.2%; width:28.2%; height:51.5%; border:1.5px solid var(--accent); border-radius:0; pointer-events:none"></div>
           <div style="position:absolute; left:69.1%; top:5.2%; width:28.2%; height:51.5%; background:#FAFAFA; pointer-events:none"></div>
           <div style="position:absolute; left:69.1%; top:58.4%; display:flex; align-items:center; gap:10px; pointer-events:none">
@@ -176,7 +182,7 @@
             <span style="font:300 13px/1.6 'Poppins',sans-serif; color:#5C5C5C; background:#F0F0F0; padding:6px 10px; border-radius:0; max-width:22ch">usable content width, no guaranteed height</span>
           </div>
         </div>
-        <figcaption style="font: 300 14px/1.7 'Poppins',sans-serif; color: #5C5C5C; margin: 18px 0 0; max-width: 1200px; width: 100%; height: 100%">&nbsp;The Zendesk panel,&nbsp; with the 452px column against the full window.&nbsp; The constraint is established once here and never restated.</figcaption>
+        <figcaption style="font: 300 14px/1.7 'Poppins',sans-serif; color: #5C5C5C; margin: 18px 0 0; max-width: 1200px; width: 100%; height: 100%">The Zendesk panel, with the 452px column against the full window.</figcaption>
       </figure>
 
       <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:96px 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
@@ -200,7 +206,7 @@
             <span style="position:relative; font:500 16px/1.3 'Poppins',sans-serif; color:#111111">The correspondence pop-out<span data-strike="" style="position:absolute; left:0; top:52%; height:1px; width:0%; background:#111111; transition:width 600ms cubic-bezier(.2,.8,.2,1) 200ms"></span></span>
           </div>
           <div data-killed-img="" style="border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#F5F5F5; filter:grayscale(0); opacity:1; transition:filter 800ms cubic-bezier(.2,.8,.2,1), opacity 800ms cubic-bezier(.2,.8,.2,1)">
-            <img src="assets/images/03-killed-popout.png" alt="The correspondence overlay covering the Copilot panel" style="display:block; width:100%; height:auto">
+            <img src="assets/images/03-killed-popout.webp" alt="The correspondence overlay covering the Copilot panel" style="display:block; width:100%; height:auto">
           </div>
           <figcaption style="font:300 14px/1.7 'Poppins',sans-serif; color:#5C5C5C; margin:16px 0 0">It ate the working area, and customer success never closed overlays once opened.</figcaption>
         </figure>
@@ -210,7 +216,7 @@
             <span style="position:relative; font:500 16px/1.3 'Poppins',sans-serif; color:#111111">The sliding PDF pane<span data-strike="" style="position:absolute; left:0; top:52%; height:1px; width:0%; background:#111111; transition:width 600ms cubic-bezier(.2,.8,.2,1) 320ms"></span></span>
           </div>
           <div data-killed-img="" style="border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#F5F5F5; filter:grayscale(0); opacity:1; transition:filter 800ms cubic-bezier(.2,.8,.2,1), opacity 800ms cubic-bezier(.2,.8,.2,1)">
-            <img src="assets/images/04-killed-layout-v3.png" alt="The layout with the source PDF pane consuming the panel" style="display:block; width:100%; height:auto">
+            <img src="assets/images/04-killed-layout-v3.webp" alt="The layout with the source PDF pane consuming the panel" style="display:block; width:100%; height:auto">
           </div>
           <figcaption style="font:300 14px/1.7 'Poppins',sans-serif; color:#5C5C5C; margin:16px 0 0">It consumed the panel. The same mistake wearing different clothes.</figcaption>
         </figure>
@@ -225,7 +231,7 @@
 
       <figure data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:64px 0 0">
         <div style="border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#F5F5F5">
-          <img src="assets/images/15-hover-pattern-full.png" alt="Rest state, hover state, annotated anatomy and the source popover component" style="display:block; width:100%; height:auto">
+          <img src="assets/images/15-hover-pattern-full.webp" alt="Rest state, hover state, annotated anatomy and the source popover component" style="display:block; width:100%; height:auto">
         </div>
         <figcaption style="font: 300 14px/1.7 'Poppins',sans-serif; color: #5C5C5C; margin: 18px 0 0; max-width: 1200px; height: 100%; width: 100%">Rest, hover, anatomy and component. The popover is a real component at 380px fixed width, so every extracted value in the product inherits the same evidence treatment.</figcaption>
       </figure>
@@ -296,7 +302,7 @@
       </div>
 
       <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:56px 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:820px; background:#F5F5F5; border:1px solid #E5E5E5; border-radius:0; padding:clamp(28px, 3.5vw, 48px)">
-        <h3 style="font:500 clamp(22px, 2.2vw, 26px)/1.3 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px; max-width:none; text-wrap:pretty">How much the system does on its own depends on the request, not a on/off switch someone flips.</h3>
+        <h3 style="font:500 clamp(22px, 2.2vw, 26px)/1.3 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px; max-width:none; text-wrap:pretty">How much the system does on its own depends on the request, not an on/off switch someone flips.</h3>
         <p style="font:300 17px/1.8 'Poppins',sans-serif; margin:0 0 32px; text-wrap:pretty">The system only handles a request on its own when three things are true: the request names a specific policy and the customer’s policies all live in one place, the records stay clean even when a policy changes hands between agencies, and the person asking is clearly the right person to ask. That covers roughly 55 to 70% of loss run requests. Everything else goes to a person. Writing those three conditions down is what let us widen the scope later without arguing about trust all over again.</p>
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap:24px; border-top:1px solid #E5E5E5; padding-top:28px">
           <div style="display:flex; gap:12px"><span style="font:300 15px/1.7 'Poppins',sans-serif; color:#5C5C5C">Policy number present, one account</span></div>
@@ -307,7 +313,7 @@
 
       <figure data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:72px 0 0">
         <div style="border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#F5F5F5">
-          <img src="assets/images/09-account-matching.png" alt="The supervised runbook filled in, with the generated document attached and ready to send" style="display:block; width:100%; height:auto">
+          <img src="assets/images/09-account-matching.webp" alt="The supervised runbook filled in, with the generated document attached and ready to send" style="display:block; width:100%; height:auto">
         </div>
         <figcaption style="font: 300 14px/1.7 'Poppins',sans-serif; color: #5C5C5C; margin: 18px 0 0; max-width: 1200px; width: 100%; height: 100%">The supervised path. Intent and work type filled, the reply drafted, the generated loss run attached, and every one of those still editable before submit. Personal details blurred.</figcaption>
       </figure>
@@ -323,7 +329,7 @@
 
       <figure data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:64px 0 0">
         <div style="border:1px solid #E5E5E5; border-radius:0; overflow:hidden; background:#F5F5F5">
-          <img src="assets/images/19-assign-to-agent.png" alt="The blocked state and the specialist picker, with current load shown per specialist" style="display:block; width:100%; height:auto">
+          <img src="assets/images/19-assign-to-agent.webp" alt="The blocked state and the specialist picker, with current load shown per specialist" style="display:block; width:100%; height:auto">
         </div>
         <figcaption style="font:300 14px/1.7 'Poppins',sans-serif; color:#5C5C5C; margin:18px 0 0; max-width:640px">The fifth case. Copilot says plainly that it cannot act and why, then the specialist list is scoped to people qualified for claims-attached requests with current load shown, so the agent does not send it into a queue.</figcaption>
       </figure>
@@ -331,7 +337,7 @@
       <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:96px 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
         <h3 style="font:500 clamp(24px, 2.6vw, 30px)/1.25 'Poppins',sans-serif; letter-spacing:0; margin:0 0 24px">What would not have happened without me: the upstream PDF fix</h3>
         <p style="margin:0 0 24px; text-wrap:pretty">Nobody else was looking outside the interface for the cause of an interface problem, and I was the only person who owned both the exporter and the panel.</p>
-        <p style="margin:0 0 24px; text-wrap:pretty">The hover pattern crossing into claims is the second. I was also the designer on the claims workbench, which had the identical shape: extracted values from long invoices that nobody would open a document to confirm. I took it to that team and their PMs as reuse of something that already existed and worked, which was an easier conversation than a new pattern would have been, though claims had never used Copilot at all so I had to demonstrate the product before I could demonstrate the pattern. Labelled fields and hover to source now run in both verticals. The broader runbook and containment model went further: three teams, including underwriting workbench and claims, built their own AI features on it.</p>
+        <p style="margin:0 0 24px; text-wrap:pretty">The hover pattern crossing into claims is the second. I was also the designer on the claims workbench, which had the identical shape: extracted values from long invoices that nobody would open a document to confirm. I took it to that team and their PMs as reuse of something that already existed and worked, which was an easier conversation than a new pattern would have been, though claims had never used Copilot at all so I had to demonstrate the product before I could demonstrate the pattern. Labelled fields and hover to source now run in both verticals. The broader runbook and containment model went further: it now runs in three teams, customer success, claims and the underwriting workbench, with the other two building their own AI features on it.</p>
         <p style="margin:0; text-wrap:pretty">I worked the trust boundary jointly with the machine learning engineer, and the eligibility criteria came out of that back and forth rather than from either side alone.</p>
       </div>
     </div>
@@ -372,7 +378,7 @@
       <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin-left:clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:700px">
         <p style="margin:0 0 24px; text-wrap:pretty">Loss run automation reached 65% at its peak. Across the two years since, the blended rate sits near 50% as Copilot expanded into bind requests, broker documents and quote changes, so the percentage fell while the volume it handled rose.</p>
         <p style="margin:0 0 24px; text-wrap:pretty">The pattern generalized to bind requests, signature bundles and renewals. Measured against control groups: bind requests down 32% on one-touch tickets and 22% on multi-touch, signature bundles down 37.3% and 61.2%, quote changes down 27%.</p>
-        <p style="margin:0; text-wrap:pretty">Three teams reused Hover-to-source, the pattern behind that panel, for their own AI features, including the underwriting workbench and claims.</p>
+        <p style="margin:0; text-wrap:pretty">The runbook and containment model behind that panel now runs in three teams: customer success, where it was built, plus claims and the underwriting workbench, each building their own AI features on it. Hover-to-source itself crossed into claims, on invoices.</p>
       </div>
 
       <div data-reveal="" style="opacity:0; transform:translateY(16px); transition:opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); margin:72px 0 0 clamp(0px, calc((100% - 700px) * 0.9), 264px); max-width:820px; border-left:2px solid var(--accent); padding:4px 0 4px 32px">
